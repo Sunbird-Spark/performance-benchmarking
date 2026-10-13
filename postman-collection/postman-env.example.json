@@ -1,0 +1,160 @@
+{
+  "id": "8f28b33c-b1cc-4194-8205-97ab8e9607bf",
+  "name": "test.sunbirded.org",
+  "values": [
+    {
+      "key": "host",
+      "value": "https://test.sunbirded.org",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "apikey",
+      "value": "",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "lms_client_secret",
+      "value": "",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "admin_client_id",
+      "value": "direct-grant",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "admin_client_secret",
+      "value": "",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "admin_grant_type",
+      "value": "password",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "admin_username",
+      "value": "admin",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "admin_password",
+      "value": "",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "blob_store_path",
+      "value": "https://<storage-account>.blob.core.windows.net/",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "public_container_name",
+      "value": "<public-container>",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "google_oauth_client_id",
+      "value": "15192686475-slr7o03e5jg36grl4g1851as9j99bth5.apps.googleusercontent.com",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "google_captcha_site_key",
+      "value": "6LeODmgsAAAAADeLF5ANfswHMP49L8SeRsAF2MFz",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "access_token",
+      "value": "",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "creator_access_token",
+      "value": "",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "user_access_token",
+      "value": "",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "username",
+      "value": "user1@yopmail.com",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "password",
+      "value": "",
+      "type": "secret",
+      "enabled": true
+    },
+    {
+      "key": "channel_id",
+      "value": "0146092176054435840",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "user_id",
+      "value": "79e992dc-a08a-4709-9d5d-dc559da8e5e7",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "course_id",
+      "value": "do_21466499993533644811",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "batch_id",
+      "value": "0146692616775188480",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "content_id",
+      "value": "do_214664949803433984115",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "content_ids",
+      "value": "do_214664949803433984115,do_21466346440615526416,do_21466344338848153611",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "collection_id",
+      "value": "do_214670544685768704110",
+      "type": "default",
+      "enabled": true
+    }
+  ],
+  "color": null,
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2026-10-05T10:14:25.513Z",
+  "_postman_exported_using": "Postman/12.30.4"
+}

@@ -1,0 +1,5 @@
+{
+  "title": "Content State Read",
+  "description": "POST /api/course/v1/content/state/read. Reads course progress for the user, course and batch in the JMX body. Needs a user access token.",
+  "writes": false
+}

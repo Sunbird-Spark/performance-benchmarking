@@ -1,0 +1,11 @@
+{
+  "env_file": "postman-collection/benchmark-env.json",
+  "threads": 10,
+  "ramp_up": 10,
+  "duration": 300,
+  "loops": 10,
+  "tps": 0,
+  "connect_timeout_ms": 10000,
+  "response_timeout_ms": 30000,
+  "heap": "-Xms1g -Xmx2g"
+}

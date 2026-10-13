@@ -1,0 +1,5 @@
+{
+  "title": "Content Search",
+  "description": "POST /api/composite/v1/search. Searches live content (filters, sort and limit are in the JMX request body).",
+  "writes": false
+}

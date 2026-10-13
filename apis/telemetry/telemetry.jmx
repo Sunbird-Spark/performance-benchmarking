@@ -1,0 +1,822 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="telemetry" enabled="true">
+      <stringProp name="TestPlan.comments">Postman: Telemetry. Values come from JMeter properties (-J / -q); the bench CLI supplies them.</stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Users" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">${__P(loops,1)}</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(threads,1)}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${__P(ramp_up,1)}</stringProp>
+        <stringProp name="ThreadGroup.scheduler">${__P(scheduler,false)}</stringProp>
+        <stringProp name="ThreadGroup.duration">${__P(duration,0)}</stringProp>
+        <stringProp name="ThreadGroup.delay">0</stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="telemetry" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+            <elementProp name="" elementType="HTTPArgument">
+              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+              <stringProp name="Argument.value">{
+  &quot;id&quot;: &quot;api.sunbird.telemetry&quot;,
+  &quot;ver&quot;: &quot;3.0&quot;,
+  &quot;params&quot;: {
+    &quot;msgid&quot;: &quot;${__UUID()}&quot;
+  },
+  &quot;ets&quot;: ${__time()},
+  &quot;events&quot;: [
+    {
+      &quot;eid&quot;: &quot;INTERACT&quot;,
+      &quot;ets&quot;: ${__time()},
+      &quot;ver&quot;: &quot;3.0&quot;,
+      &quot;mid&quot;: &quot;INTERACT:${__UUID()}&quot;,
+      &quot;actor&quot;: {
+        &quot;id&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;type&quot;: &quot;User&quot;
+      },
+      &quot;context&quot;: {
+        &quot;channel&quot;: &quot;${__P(channel_id,)}&quot;,
+        &quot;pdata&quot;: {
+          &quot;id&quot;: &quot;staging.sunbird.portal&quot;,
+          &quot;ver&quot;: &quot;1.0.0&quot;,
+          &quot;pid&quot;: &quot;staging.sunbird.portal&quot;
+        },
+        &quot;env&quot;: &quot;contentplayer&quot;,
+        &quot;sid&quot;: &quot;session-1791193581776&quot;,
+        &quot;did&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;cdata&quot;: [
+          {
+            &quot;id&quot;: &quot;session-1791193581776&quot;,
+            &quot;type&quot;: &quot;UserSession&quot;
+          },
+          {
+            &quot;id&quot;: &quot;Desktop&quot;,
+            &quot;type&quot;: &quot;Device&quot;
+          }
+        ],
+        &quot;rollup&quot;: {
+          &quot;l1&quot;: &quot;0146092176054435840&quot;
+        }
+      },
+      &quot;object&quot;: {},
+      &quot;tags&quot;: [
+        &quot;0146092176054435840&quot;
+      ],
+      &quot;edata&quot;: {
+        &quot;id&quot;: &quot;nav-explore&quot;,
+        &quot;type&quot;: &quot;CLICK&quot;,
+        &quot;pageid&quot;: &quot;sidebar&quot;
+      }
+    },
+    {
+      &quot;eid&quot;: &quot;IMPRESSION&quot;,
+      &quot;ets&quot;: ${__time()},
+      &quot;ver&quot;: &quot;3.0&quot;,
+      &quot;mid&quot;: &quot;IMPRESSION:${__UUID()}&quot;,
+      &quot;actor&quot;: {
+        &quot;id&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;type&quot;: &quot;User&quot;
+      },
+      &quot;context&quot;: {
+        &quot;channel&quot;: &quot;${__P(channel_id,)}&quot;,
+        &quot;pdata&quot;: {
+          &quot;id&quot;: &quot;staging.sunbird.portal&quot;,
+          &quot;ver&quot;: &quot;1.0.0&quot;,
+          &quot;pid&quot;: &quot;staging.sunbird.portal&quot;
+        },
+        &quot;env&quot;: &quot;explore&quot;,
+        &quot;sid&quot;: &quot;session-1791193581776&quot;,
+        &quot;did&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;cdata&quot;: [
+          {
+            &quot;id&quot;: &quot;session-1791193581776&quot;,
+            &quot;type&quot;: &quot;UserSession&quot;
+          },
+          {
+            &quot;id&quot;: &quot;Desktop&quot;,
+            &quot;type&quot;: &quot;Device&quot;
+          }
+        ],
+        &quot;rollup&quot;: {
+          &quot;l1&quot;: &quot;0146092176054435840&quot;
+        }
+      },
+      &quot;object&quot;: {},
+      &quot;tags&quot;: [
+        &quot;0146092176054435840&quot;
+      ],
+      &quot;edata&quot;: {
+        &quot;type&quot;: &quot;view&quot;,
+        &quot;pageid&quot;: &quot;explore&quot;,
+        &quot;uri&quot;: &quot;/explore&quot;,
+        &quot;duration&quot;: 627.913
+      }
+    },
+    {
+      &quot;eid&quot;: &quot;INTERACT&quot;,
+      &quot;ets&quot;: ${__time()},
+      &quot;ver&quot;: &quot;3.0&quot;,
+      &quot;mid&quot;: &quot;INTERACT:${__UUID()}&quot;,
+      &quot;actor&quot;: {
+        &quot;id&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;type&quot;: &quot;User&quot;
+      },
+      &quot;context&quot;: {
+        &quot;channel&quot;: &quot;${__P(channel_id,)}&quot;,
+        &quot;pdata&quot;: {
+          &quot;id&quot;: &quot;staging.sunbird.portal&quot;,
+          &quot;ver&quot;: &quot;1.0.0&quot;,
+          &quot;pid&quot;: &quot;staging.sunbird.portal&quot;
+        },
+        &quot;env&quot;: &quot;explore&quot;,
+        &quot;sid&quot;: &quot;session-1791193581776&quot;,
+        &quot;did&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;cdata&quot;: [
+          {
+            &quot;id&quot;: &quot;session-1791193581776&quot;,
+            &quot;type&quot;: &quot;UserSession&quot;
+          },
+          {
+            &quot;id&quot;: &quot;Desktop&quot;,
+            &quot;type&quot;: &quot;Device&quot;
+          }
+        ],
+        &quot;rollup&quot;: {
+          &quot;l1&quot;: &quot;0146092176054435840&quot;
+        }
+      },
+      &quot;object&quot;: {},
+      &quot;tags&quot;: [
+        &quot;0146092176054435840&quot;
+      ],
+      &quot;edata&quot;: {
+        &quot;id&quot;: &quot;nav-profile&quot;,
+        &quot;type&quot;: &quot;CLICK&quot;,
+        &quot;pageid&quot;: &quot;sidebar&quot;
+      }
+    },
+    {
+      &quot;eid&quot;: &quot;IMPRESSION&quot;,
+      &quot;ets&quot;: ${__time()},
+      &quot;ver&quot;: &quot;3.0&quot;,
+      &quot;mid&quot;: &quot;IMPRESSION:${__UUID()}&quot;,
+      &quot;actor&quot;: {
+        &quot;id&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;type&quot;: &quot;User&quot;
+      },
+      &quot;context&quot;: {
+        &quot;channel&quot;: &quot;${__P(channel_id,)}&quot;,
+        &quot;pdata&quot;: {
+          &quot;id&quot;: &quot;staging.sunbird.portal&quot;,
+          &quot;ver&quot;: &quot;1.0.0&quot;,
+          &quot;pid&quot;: &quot;staging.sunbird.portal&quot;
+        },
+        &quot;env&quot;: &quot;profile&quot;,
+        &quot;sid&quot;: &quot;session-1791193581776&quot;,
+        &quot;did&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;cdata&quot;: [
+          {
+            &quot;id&quot;: &quot;session-1791193581776&quot;,
+            &quot;type&quot;: &quot;UserSession&quot;
+          },
+          {
+            &quot;id&quot;: &quot;Desktop&quot;,
+            &quot;type&quot;: &quot;Device&quot;
+          }
+        ],
+        &quot;rollup&quot;: {
+          &quot;l1&quot;: &quot;0146092176054435840&quot;
+        }
+      },
+      &quot;object&quot;: {},
+      &quot;tags&quot;: [
+        &quot;0146092176054435840&quot;
+      ],
+      &quot;edata&quot;: {
+        &quot;type&quot;: &quot;view&quot;,
+        &quot;pageid&quot;: &quot;profile&quot;,
+        &quot;uri&quot;: &quot;/profile&quot;,
+        &quot;duration&quot;: 6.735
+      }
+    },
+    {
+      &quot;eid&quot;: &quot;INTERACT&quot;,
+      &quot;ets&quot;: ${__time()},
+      &quot;ver&quot;: &quot;3.0&quot;,
+      &quot;mid&quot;: &quot;INTERACT:${__UUID()}&quot;,
+      &quot;actor&quot;: {
+        &quot;id&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;type&quot;: &quot;User&quot;
+      },
+      &quot;context&quot;: {
+        &quot;channel&quot;: &quot;${__P(channel_id,)}&quot;,
+        &quot;pdata&quot;: {
+          &quot;id&quot;: &quot;staging.sunbird.portal&quot;,
+          &quot;ver&quot;: &quot;1.0.0&quot;,
+          &quot;pid&quot;: &quot;staging.sunbird.portal&quot;
+        },
+        &quot;env&quot;: &quot;profile&quot;,
+        &quot;sid&quot;: &quot;session-1791193581776&quot;,
+        &quot;did&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;cdata&quot;: [
+          {
+            &quot;id&quot;: &quot;session-1791193581776&quot;,
+            &quot;type&quot;: &quot;UserSession&quot;
+          },
+          {
+            &quot;id&quot;: &quot;Desktop&quot;,
+            &quot;type&quot;: &quot;Device&quot;
+          }
+        ],
+        &quot;rollup&quot;: {
+          &quot;l1&quot;: &quot;0146092176054435840&quot;
+        }
+      },
+      &quot;object&quot;: {},
+      &quot;tags&quot;: [
+        &quot;0146092176054435840&quot;
+      ],
+      &quot;edata&quot;: {
+        &quot;id&quot;: &quot;nav-explore&quot;,
+        &quot;type&quot;: &quot;CLICK&quot;,
+        &quot;pageid&quot;: &quot;sidebar&quot;
+      }
+    },
+    {
+      &quot;eid&quot;: &quot;IMPRESSION&quot;,
+      &quot;ets&quot;: ${__time()},
+      &quot;ver&quot;: &quot;3.0&quot;,
+      &quot;mid&quot;: &quot;IMPRESSION:${__UUID()}&quot;,
+      &quot;actor&quot;: {
+        &quot;id&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;type&quot;: &quot;User&quot;
+      },
+      &quot;context&quot;: {
+        &quot;channel&quot;: &quot;${__P(channel_id,)}&quot;,
+        &quot;pdata&quot;: {
+          &quot;id&quot;: &quot;staging.sunbird.portal&quot;,
+          &quot;ver&quot;: &quot;1.0.0&quot;,
+          &quot;pid&quot;: &quot;staging.sunbird.portal&quot;
+        },
+        &quot;env&quot;: &quot;explore&quot;,
+        &quot;sid&quot;: &quot;session-1791193581776&quot;,
+        &quot;did&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;cdata&quot;: [
+          {
+            &quot;id&quot;: &quot;session-1791193581776&quot;,
+            &quot;type&quot;: &quot;UserSession&quot;
+          },
+          {
+            &quot;id&quot;: &quot;Desktop&quot;,
+            &quot;type&quot;: &quot;Device&quot;
+          }
+        ],
+        &quot;rollup&quot;: {
+          &quot;l1&quot;: &quot;0146092176054435840&quot;
+        }
+      },
+      &quot;object&quot;: {},
+      &quot;tags&quot;: [
+        &quot;0146092176054435840&quot;
+      ],
+      &quot;edata&quot;: {
+        &quot;type&quot;: &quot;view&quot;,
+        &quot;pageid&quot;: &quot;explore&quot;,
+        &quot;uri&quot;: &quot;/explore&quot;,
+        &quot;duration&quot;: 1.486
+      }
+    },
+    {
+      &quot;eid&quot;: &quot;INTERACT&quot;,
+      &quot;ets&quot;: ${__time()},
+      &quot;ver&quot;: &quot;3.0&quot;,
+      &quot;mid&quot;: &quot;INTERACT:${__UUID()}&quot;,
+      &quot;actor&quot;: {
+        &quot;id&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;type&quot;: &quot;User&quot;
+      },
+      &quot;context&quot;: {
+        &quot;channel&quot;: &quot;${__P(channel_id,)}&quot;,
+        &quot;pdata&quot;: {
+          &quot;id&quot;: &quot;staging.sunbird.portal&quot;,
+          &quot;ver&quot;: &quot;1.0.0&quot;,
+          &quot;pid&quot;: &quot;staging.sunbird.portal&quot;
+        },
+        &quot;env&quot;: &quot;contentplayer&quot;,
+        &quot;sid&quot;: &quot;session-1791193581776&quot;,
+        &quot;did&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;cdata&quot;: [
+          {
+            &quot;id&quot;: &quot;primaryCategory&quot;,
+            &quot;type&quot;: &quot;Filter&quot;
+          }
+        ],
+        &quot;rollup&quot;: {
+          &quot;l1&quot;: &quot;0146092176054435840&quot;
+        }
+      },
+      &quot;object&quot;: {},
+      &quot;tags&quot;: [
+        &quot;0146092176054435840&quot;
+      ],
+      &quot;edata&quot;: {
+        &quot;type&quot;: &quot;CLICK&quot;,
+        &quot;id&quot;: &quot;explore-filter-change&quot;,
+        &quot;pageid&quot;: &quot;explore-page&quot;
+      }
+    },
+    {
+      &quot;eid&quot;: &quot;INTERACT&quot;,
+      &quot;ets&quot;: ${__time()},
+      &quot;ver&quot;: &quot;3.0&quot;,
+      &quot;mid&quot;: &quot;INTERACT:${__UUID()}&quot;,
+      &quot;actor&quot;: {
+        &quot;id&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;type&quot;: &quot;User&quot;
+      },
+      &quot;context&quot;: {
+        &quot;channel&quot;: &quot;${__P(channel_id,)}&quot;,
+        &quot;pdata&quot;: {
+          &quot;id&quot;: &quot;staging.sunbird.portal&quot;,
+          &quot;ver&quot;: &quot;1.0.0&quot;,
+          &quot;pid&quot;: &quot;staging.sunbird.portal&quot;
+        },
+        &quot;env&quot;: &quot;contentplayer&quot;,
+        &quot;sid&quot;: &quot;session-1791193581776&quot;,
+        &quot;did&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;cdata&quot;: [
+          {
+            &quot;id&quot;: &quot;do_21466499993533644811&quot;,
+            &quot;type&quot;: &quot;Collection&quot;
+          }
+        ],
+        &quot;rollup&quot;: {
+          &quot;l1&quot;: &quot;0146092176054435840&quot;
+        }
+      },
+      &quot;object&quot;: {},
+      &quot;tags&quot;: [
+        &quot;0146092176054435840&quot;
+      ],
+      &quot;edata&quot;: {
+        &quot;id&quot;: &quot;collection-card-click&quot;,
+        &quot;type&quot;: &quot;CLICK&quot;
+      }
+    },
+    {
+      &quot;eid&quot;: &quot;IMPRESSION&quot;,
+      &quot;ets&quot;: ${__time()},
+      &quot;ver&quot;: &quot;3.0&quot;,
+      &quot;mid&quot;: &quot;IMPRESSION:${__UUID()}&quot;,
+      &quot;actor&quot;: {
+        &quot;id&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;type&quot;: &quot;User&quot;
+      },
+      &quot;context&quot;: {
+        &quot;channel&quot;: &quot;${__P(channel_id,)}&quot;,
+        &quot;pdata&quot;: {
+          &quot;id&quot;: &quot;staging.sunbird.portal&quot;,
+          &quot;ver&quot;: &quot;1.0.0&quot;,
+          &quot;pid&quot;: &quot;staging.sunbird.portal&quot;
+        },
+        &quot;env&quot;: &quot;course&quot;,
+        &quot;sid&quot;: &quot;session-1791193581776&quot;,
+        &quot;did&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;cdata&quot;: [
+          {
+            &quot;id&quot;: &quot;session-1791193581776&quot;,
+            &quot;type&quot;: &quot;UserSession&quot;
+          },
+          {
+            &quot;id&quot;: &quot;Desktop&quot;,
+            &quot;type&quot;: &quot;Device&quot;
+          }
+        ],
+        &quot;rollup&quot;: {
+          &quot;l1&quot;: &quot;0146092176054435840&quot;
+        }
+      },
+      &quot;object&quot;: {
+        &quot;id&quot;: &quot;do_21466499993533644811&quot;,
+        &quot;type&quot;: &quot;Course&quot;
+      },
+      &quot;tags&quot;: [
+        &quot;0146092176054435840&quot;
+      ],
+      &quot;edata&quot;: {
+        &quot;type&quot;: &quot;view&quot;,
+        &quot;pageid&quot;: &quot;collection-detail&quot;,
+        &quot;uri&quot;: &quot;/collection/do_21466499993533644811&quot;,
+        &quot;duration&quot;: 4.676
+      }
+    },
+    {
+      &quot;eid&quot;: &quot;START&quot;,
+      &quot;ets&quot;: ${__time()},
+      &quot;ver&quot;: &quot;3.0&quot;,
+      &quot;mid&quot;: &quot;START:${__UUID()}&quot;,
+      &quot;actor&quot;: {
+        &quot;id&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;type&quot;: &quot;User&quot;
+      },
+      &quot;context&quot;: {
+        &quot;channel&quot;: &quot;${__P(channel_id,)}&quot;,
+        &quot;pdata&quot;: {
+          &quot;id&quot;: &quot;staging.sunbird.portal&quot;,
+          &quot;ver&quot;: &quot;1.0.0&quot;,
+          &quot;pid&quot;: &quot;staging.sunbird.portal&quot;
+        },
+        &quot;env&quot;: &quot;course&quot;,
+        &quot;sid&quot;: &quot;session-1791193581776&quot;,
+        &quot;did&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;cdata&quot;: [],
+        &quot;rollup&quot;: {
+          &quot;l1&quot;: &quot;0146092176054435840&quot;
+        }
+      },
+      &quot;object&quot;: {
+        &quot;id&quot;: &quot;do_21466499993533644811&quot;,
+        &quot;type&quot;: &quot;Course&quot;,
+        &quot;ver&quot;: &quot;1&quot;
+      },
+      &quot;tags&quot;: [
+        &quot;0146092176054435840&quot;
+      ],
+      &quot;edata&quot;: {
+        &quot;duration&quot;: 0,
+        &quot;uaspec&quot;: {
+          &quot;agent&quot;: &quot;Brave&quot;,
+          &quot;ver&quot;: &quot;146.0.0.0&quot;,
+          &quot;system&quot;: &quot;Mac OS&quot;,
+          &quot;platform&quot;: &quot;10.15.7&quot;,
+          &quot;raw&quot;: &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36&quot;
+        }
+      }
+    },
+    {
+      &quot;eid&quot;: &quot;INTERACT&quot;,
+      &quot;ets&quot;: ${__time()},
+      &quot;ver&quot;: &quot;3.0&quot;,
+      &quot;mid&quot;: &quot;INTERACT:${__UUID()}&quot;,
+      &quot;actor&quot;: {
+        &quot;id&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;type&quot;: &quot;User&quot;
+      },
+      &quot;context&quot;: {
+        &quot;channel&quot;: &quot;${__P(channel_id,)}&quot;,
+        &quot;pdata&quot;: {
+          &quot;id&quot;: &quot;staging.sunbird.portal&quot;,
+          &quot;ver&quot;: &quot;1.0.0&quot;,
+          &quot;pid&quot;: &quot;staging.sunbird.portal&quot;
+        },
+        &quot;env&quot;: &quot;contentplayer&quot;,
+        &quot;sid&quot;: &quot;session-1791193581776&quot;,
+        &quot;did&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;cdata&quot;: [
+          {
+            &quot;id&quot;: &quot;0146692616775188480&quot;,
+            &quot;type&quot;: &quot;Batch&quot;
+          }
+        ],
+        &quot;rollup&quot;: {
+          &quot;l1&quot;: &quot;0146092176054435840&quot;
+        }
+      },
+      &quot;object&quot;: {
+        &quot;id&quot;: &quot;do_21466499993533644811&quot;,
+        &quot;type&quot;: &quot;Course&quot;,
+        &quot;ver&quot;: &quot;1&quot;
+      },
+      &quot;tags&quot;: [
+        &quot;0146092176054435840&quot;
+      ],
+      &quot;edata&quot;: {
+        &quot;type&quot;: &quot;CLICK&quot;,
+        &quot;id&quot;: &quot;batch-select-available&quot;,
+        &quot;pageid&quot;: &quot;collection-detail&quot;
+      }
+    },
+    {
+      &quot;eid&quot;: &quot;INTERACT&quot;,
+      &quot;ets&quot;: ${__time()},
+      &quot;ver&quot;: &quot;3.0&quot;,
+      &quot;mid&quot;: &quot;INTERACT:${__UUID()}&quot;,
+      &quot;actor&quot;: {
+        &quot;id&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;type&quot;: &quot;User&quot;
+      },
+      &quot;context&quot;: {
+        &quot;channel&quot;: &quot;${__P(channel_id,)}&quot;,
+        &quot;pdata&quot;: {
+          &quot;id&quot;: &quot;staging.sunbird.portal&quot;,
+          &quot;ver&quot;: &quot;1.0.0&quot;,
+          &quot;pid&quot;: &quot;staging.sunbird.portal&quot;
+        },
+        &quot;env&quot;: &quot;contentplayer&quot;,
+        &quot;sid&quot;: &quot;session-1791193581776&quot;,
+        &quot;did&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;cdata&quot;: [
+          {
+            &quot;id&quot;: &quot;0146692616775188480&quot;,
+            &quot;type&quot;: &quot;Batch&quot;
+          }
+        ],
+        &quot;rollup&quot;: {
+          &quot;l1&quot;: &quot;0146092176054435840&quot;
+        }
+      },
+      &quot;object&quot;: {
+        &quot;id&quot;: &quot;do_21466499993533644811&quot;,
+        &quot;type&quot;: &quot;Course&quot;,
+        &quot;ver&quot;: &quot;1&quot;
+      },
+      &quot;tags&quot;: [
+        &quot;0146092176054435840&quot;
+      ],
+      &quot;edata&quot;: {
+        &quot;id&quot;: &quot;join-course-btn&quot;,
+        &quot;type&quot;: &quot;CLICK&quot;,
+        &quot;pageid&quot;: &quot;collection-detail&quot;
+      }
+    },
+    {
+      &quot;eid&quot;: &quot;AUDIT&quot;,
+      &quot;ets&quot;: ${__time()},
+      &quot;ver&quot;: &quot;3.0&quot;,
+      &quot;mid&quot;: &quot;AUDIT:${__UUID()}&quot;,
+      &quot;actor&quot;: {
+        &quot;id&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;type&quot;: &quot;User&quot;
+      },
+      &quot;context&quot;: {
+        &quot;channel&quot;: &quot;${__P(channel_id,)}&quot;,
+        &quot;pdata&quot;: {
+          &quot;id&quot;: &quot;staging.sunbird.portal&quot;,
+          &quot;ver&quot;: &quot;1.0.0&quot;,
+          &quot;pid&quot;: &quot;staging.sunbird.portal&quot;
+        },
+        &quot;env&quot;: &quot;contentplayer&quot;,
+        &quot;sid&quot;: &quot;session-1791193581776&quot;,
+        &quot;did&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;cdata&quot;: [
+          {
+            &quot;id&quot;: &quot;0146692616775188480&quot;,
+            &quot;type&quot;: &quot;Batch&quot;
+          }
+        ],
+        &quot;rollup&quot;: {
+          &quot;l1&quot;: &quot;0146092176054435840&quot;
+        }
+      },
+      &quot;object&quot;: {
+        &quot;id&quot;: &quot;do_21466499993533644811&quot;,
+        &quot;type&quot;: &quot;Collection&quot;
+      },
+      &quot;tags&quot;: [
+        &quot;0146092176054435840&quot;
+      ],
+      &quot;edata&quot;: {
+        &quot;props&quot;: [
+          &quot;enrollment&quot;
+        ],
+        &quot;prevstate&quot;: &quot;NotEnrolled&quot;,
+        &quot;state&quot;: &quot;Enrolled&quot;
+      }
+    },
+    {
+      &quot;eid&quot;: &quot;IMPRESSION&quot;,
+      &quot;ets&quot;: ${__time()},
+      &quot;ver&quot;: &quot;3.0&quot;,
+      &quot;mid&quot;: &quot;IMPRESSION:${__UUID()}&quot;,
+      &quot;actor&quot;: {
+        &quot;id&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;type&quot;: &quot;User&quot;
+      },
+      &quot;context&quot;: {
+        &quot;channel&quot;: &quot;${__P(channel_id,)}&quot;,
+        &quot;pdata&quot;: {
+          &quot;id&quot;: &quot;staging.sunbird.portal&quot;,
+          &quot;ver&quot;: &quot;1.0.0&quot;,
+          &quot;pid&quot;: &quot;staging.sunbird.portal&quot;
+        },
+        &quot;env&quot;: &quot;course&quot;,
+        &quot;sid&quot;: &quot;session-1791193581776&quot;,
+        &quot;did&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;cdata&quot;: [
+          {
+            &quot;id&quot;: &quot;session-1791193581776&quot;,
+            &quot;type&quot;: &quot;UserSession&quot;
+          },
+          {
+            &quot;id&quot;: &quot;Desktop&quot;,
+            &quot;type&quot;: &quot;Device&quot;
+          }
+        ],
+        &quot;rollup&quot;: {
+          &quot;l1&quot;: &quot;0146092176054435840&quot;
+        }
+      },
+      &quot;object&quot;: {
+        &quot;id&quot;: &quot;do_21466499993533644811&quot;,
+        &quot;type&quot;: &quot;Course&quot;
+      },
+      &quot;tags&quot;: [
+        &quot;0146092176054435840&quot;
+      ],
+      &quot;edata&quot;: {
+        &quot;type&quot;: &quot;view&quot;,
+        &quot;pageid&quot;: &quot;collection-detail&quot;,
+        &quot;uri&quot;: &quot;/collection/do_21466499993533644811/batch/0146692616775188480&quot;,
+        &quot;duration&quot;: 49.596
+      }
+    },
+    {
+      &quot;eid&quot;: &quot;START&quot;,
+      &quot;ets&quot;: ${__time()},
+      &quot;ver&quot;: &quot;3.0&quot;,
+      &quot;mid&quot;: &quot;START:${__UUID()}&quot;,
+      &quot;actor&quot;: {
+        &quot;id&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;type&quot;: &quot;User&quot;
+      },
+      &quot;context&quot;: {
+        &quot;channel&quot;: &quot;${__P(channel_id,)}&quot;,
+        &quot;pdata&quot;: {
+          &quot;id&quot;: &quot;staging.sunbird.portal&quot;,
+          &quot;ver&quot;: &quot;1.0.0&quot;,
+          &quot;pid&quot;: &quot;staging.sunbird.portal&quot;
+        },
+        &quot;env&quot;: &quot;contentplayer&quot;,
+        &quot;sid&quot;: &quot;jvqItlLEcJJFApN73GJFll373UVMje5g&quot;,
+        &quot;did&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;cdata&quot;: [
+          {
+            &quot;id&quot;: &quot;dptJIj2msCcVDxfQgLnNmhodpoF5K7sN&quot;,
+            &quot;type&quot;: &quot;ContentSession&quot;
+          },
+          {
+            &quot;id&quot;: &quot;GyCmQtko8685HlIT1Mp7QjT2dFv90vAy&quot;,
+            &quot;type&quot;: &quot;PlaySession&quot;
+          },
+          {
+            &quot;id&quot;: &quot;2.0&quot;,
+            &quot;type&quot;: &quot;PlayerVersion&quot;
+          }
+        ],
+        &quot;rollup&quot;: {
+          &quot;l1&quot;: &quot;0146092199129415682&quot;,
+          &quot;l2&quot;: &quot;0146092199129415682&quot;
+        },
+        &quot;uid&quot;: &quot;79e992dc-a08a-4709-9d5d-dc559da8e5e7&quot;
+      },
+      &quot;object&quot;: {
+        &quot;id&quot;: &quot;do_214664949803433984115&quot;,
+        &quot;ver&quot;: &quot;1&quot;,
+        &quot;type&quot;: &quot;Content&quot;,
+        &quot;rollup&quot;: {
+          &quot;l1&quot;: &quot;do_21466499993533644811&quot;,
+          &quot;l2&quot;: &quot;do_21466500047424716814&quot;
+        }
+      },
+      &quot;tags&quot;: [
+        &quot;0146092176054435840&quot;
+      ],
+      &quot;edata&quot;: {
+        &quot;type&quot;: &quot;content&quot;,
+        &quot;mode&quot;: &quot;play&quot;,
+        &quot;pageid&quot;: &quot;&quot;,
+        &quot;duration&quot;: 3.11,
+        &quot;uaspec&quot;: {
+          &quot;agent&quot;: &quot;Brave&quot;,
+          &quot;ver&quot;: &quot;146.0.0.0&quot;,
+          &quot;system&quot;: &quot;Mac OS&quot;,
+          &quot;platform&quot;: &quot;10.15.7&quot;,
+          &quot;raw&quot;: &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36&quot;
+        }
+      }
+    },
+    {
+      &quot;eid&quot;: &quot;END&quot;,
+      &quot;ets&quot;: ${__time()},
+      &quot;ver&quot;: &quot;3.0&quot;,
+      &quot;mid&quot;: &quot;END:${__UUID()}&quot;,
+      &quot;actor&quot;: {
+        &quot;id&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;type&quot;: &quot;User&quot;
+      },
+      &quot;context&quot;: {
+        &quot;channel&quot;: &quot;${__P(channel_id,)}&quot;,
+        &quot;pdata&quot;: {
+          &quot;id&quot;: &quot;staging.sunbird.portal&quot;,
+          &quot;ver&quot;: &quot;1.0.0&quot;,
+          &quot;pid&quot;: &quot;staging.sunbird.portal&quot;
+        },
+        &quot;env&quot;: &quot;course&quot;,
+        &quot;sid&quot;: &quot;session-1791193581776&quot;,
+        &quot;did&quot;: &quot;19337fa47554f0571373fe04215b0e6d&quot;,
+        &quot;cdata&quot;: [
+          {
+            &quot;id&quot;: &quot;0146692616775188480&quot;,
+            &quot;type&quot;: &quot;CourseBatch&quot;
+          }
+        ],
+        &quot;rollup&quot;: {
+          &quot;l1&quot;: &quot;0146092176054435840&quot;
+        }
+      },
+      &quot;object&quot;: {
+        &quot;id&quot;: &quot;do_21466499993533644811&quot;,
+        &quot;ver&quot;: &quot;1&quot;,
+        &quot;type&quot;: &quot;Course&quot;
+      },
+      &quot;tags&quot;: [
+        &quot;0146092176054435840&quot;
+      ],
+      &quot;edata&quot;: {
+        &quot;type&quot;: &quot;workflow&quot;,
+        &quot;mode&quot;: &quot;play&quot;,
+        &quot;pageid&quot;: &quot;collection-detail-exit&quot;,
+        &quot;duration&quot;: 166.99
+      }
+    }
+  ]
+}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.path">${__P(host,)}/api/data/v1/telemetry</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">${__P(connect_timeout_ms,10000)}</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">${__P(response_timeout_ms,30000)}</stringProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Headers" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+            <elementProp name="Accept" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">*/*</stringProp>
+            </elementProp>
+            <elementProp name="x-channel-id" elementType="Header">
+              <stringProp name="Header.name">x-channel-id</stringProp>
+              <stringProp name="Header.value">${__P(channel_id,)}</stringProp>
+            </elementProp>
+            <elementProp name="Authorization" elementType="Header">
+              <stringProp name="Header.name">Authorization</stringProp>
+              <stringProp name="Header.value">Bearer ${__P(apikey,)}</stringProp>
+            </elementProp>
+            <elementProp name="Content-Type" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP 200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="$.responseCode = SUCCESS" enabled="true">
+            <stringProp name="JSON_PATH">$.responseCode</stringProp>
+            <stringProp name="EXPECTED_VALUE">SUCCESS</stringProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
+            <boolProp name="EXPECT_NULL">false</boolProp>
+            <boolProp name="INVERT">false</boolProp>
+            <boolProp name="ISREGEX">false</boolProp>
+          </JSONPathAssertion>
+          <hashTree/>
+          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Target throughput (requests/min, all threads)" enabled="true">
+            <stringProp name="throughput">${__P(target_rpm,600000000)}</stringProp>
+            <intProp name="calcMode">4</intProp>
+          </ConstantThroughputTimer>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

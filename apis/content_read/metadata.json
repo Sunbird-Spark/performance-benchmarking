@@ -1,0 +1,5 @@
+{
+  "title": "Content Read",
+  "description": "GET /api/content/v1/read/{contentId}. Fetches one content item. Public API; no user token. Content ID is set in the JMX request path.",
+  "writes": false
+}

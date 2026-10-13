@@ -1,0 +1,6 @@
+{
+  "title": "Content State Update",
+  "description": "PATCH /api/course/v1/content/state/update. Updates course progress for the user, course and batch in the JMX body. Needs a user access token.",
+  "writes": true,
+  "warning": "Writes real course progress for the token user. Every request updates the same record."
+}

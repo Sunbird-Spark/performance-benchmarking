@@ -1,0 +1,12 @@
+# JMeter install (npm run setup), run output, credentials
+jmeter/
+output/
+.runtime/
+.token.json
+node_modules/
+config/defaults.local.json
+.DS_Store
+
+# Real environment files (secrets); commit only the *.example.json copies
+postman-collection/benchmark-env.json
+postman-collection/postman-env.json

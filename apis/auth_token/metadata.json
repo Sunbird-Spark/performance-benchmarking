@@ -1,0 +1,6 @@
+{
+  "title": "Auth Token (Keycloak login)",
+  "description": "POST /auth/realms/sunbird/protocol/openid-connect/token. Password-grant login for the configured user. Returns access and refresh tokens.",
+  "writes": false,
+  "warning": "Every request creates a Keycloak user session. At high rates this grows the session store; coordinate with the Keycloak owner before running in production."
+}

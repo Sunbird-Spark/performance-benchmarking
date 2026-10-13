@@ -1,0 +1,17 @@
+{
+  "name": "spark-api-benchmarking",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Per-API Apache JMeter benchmarks for the Spark/Sunbird APIs",
+  "type": "module",
+  "bin": { "bench": "cli/bench.js" },
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "bench": "node cli/bench.js",
+    "setup": "node cli/bench.js setup",
+    "test": "node --test --test-timeout=180000 test/*.test.js"
+  },
+  "dependencies": {
+    "prompts": "^2.4.2"
+  }
+}

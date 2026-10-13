@@ -1,0 +1,5 @@
+{
+  "title": "Collection Hierarchy Read",
+  "description": "GET /api/collection/v1/hierarchy/{collectionId}. Fetches a collection with its full child tree. Responses can be large. Collection ID is set in the JMX request path.",
+  "writes": false
+}

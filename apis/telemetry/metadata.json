@@ -1,0 +1,6 @@
+{
+  "title": "Telemetry",
+  "description": "POST /api/data/v1/telemetry. Submits a telemetry batch (fresh message ID and timestamps per request).",
+  "writes": true,
+  "warning": "Every request publishes real telemetry events into the data pipeline and analytics."
+}

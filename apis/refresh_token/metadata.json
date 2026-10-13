@@ -1,0 +1,5 @@
+{
+  "title": "Refresh Token (gateway token)",
+  "description": "POST /auth/v1/refresh/token. Exchanges the user refresh token for a gateway user access token.",
+  "writes": false
+}

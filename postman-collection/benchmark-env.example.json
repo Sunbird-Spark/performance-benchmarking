@@ -1,0 +1,96 @@
+{
+  "name": "benchmark (dev) cluster",
+  "values": [
+    {
+      "key": "host",
+      "value": "https://dev.sunbirded.org",
+      "type": "default",
+      "enabled": true,
+      "description": "Benchmark cluster host"
+    },
+    {
+      "key": "apikey",
+      "value": "",
+      "type": "secret",
+      "enabled": true,
+      "description": "Gateway API key (Kong JWT) of the benchmark cluster"
+    },
+    {
+      "key": "admin_client_id",
+      "value": "direct-grant",
+      "type": "default",
+      "enabled": true,
+      "description": "Keycloak direct-grant client; confirm on the cluster"
+    },
+    {
+      "key": "admin_client_secret",
+      "value": "",
+      "type": "secret",
+      "enabled": true,
+      "description": "Secret of admin_client_id on the benchmark cluster Keycloak"
+    },
+    {
+      "key": "channel_id",
+      "value": "0146742505282273280",
+      "type": "default",
+      "enabled": true,
+      "description": "'Sunbird Org' tenant (channel 'sunbird', the cluster's sunbird_default_channel)"
+    },
+    {
+      "key": "username",
+      "value": "user1_spark01",
+      "type": "default",
+      "enabled": true,
+      "description": "Seeded learner (benchmark-cluster/test data/enrolments_worker1.csv row 1)"
+    },
+    {
+      "key": "password",
+      "value": "",
+      "type": "secret",
+      "enabled": true,
+      "description": ""
+    },
+    {
+      "key": "user_id",
+      "value": "e0631fff-29a5-4a78-88c8-276fe324091c",
+      "type": "default",
+      "enabled": true,
+      "description": "userId of username"
+    },
+    {
+      "key": "course_id",
+      "value": "do_21467478204827238413384",
+      "type": "default",
+      "enabled": true,
+      "description": "Course the user is enrolled in"
+    },
+    {
+      "key": "batch_id",
+      "value": "01467478654962073610034",
+      "type": "default",
+      "enabled": true,
+      "description": "Batch of that enrolment"
+    },
+    {
+      "key": "content_id",
+      "value": "do_21467478157127680013120",
+      "type": "default",
+      "enabled": true,
+      "description": "First content of the course (content_read, content_state_update)"
+    },
+    {
+      "key": "content_ids",
+      "value": "do_21467478157127680013120,do_21467478029828096011869,do_21467478067997900812329,do_21467478031270707211886,do_21467478176350208013269",
+      "type": "default",
+      "enabled": true,
+      "description": "All contents of the course, comma-separated (content_state_read)"
+    },
+    {
+      "key": "collection_id",
+      "value": "do_21467478204827238413384",
+      "type": "default",
+      "enabled": true,
+      "description": "The same course (collection_hierarchy)"
+    }
+  ]
+}
