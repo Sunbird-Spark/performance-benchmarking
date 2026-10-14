@@ -34,7 +34,7 @@ export function startMock() {
         if (!state.access.has(req.headers['x-authenticated-user-token'])) return respond({ responseCode: 'UNAUTHORIZED', params: { err: 'bad user token' } }, 401);
       }
       let result;
-      if (path.includes('/content/v1/read/') || path.includes('/collection/v1/hierarchy/')) result = { content: { identifier: path.split('/').pop() } };
+      if (/\/content\/v[12]\/read\//.test(path) || path.includes('/collection/v1/hierarchy/')) result = { content: { identifier: path.split('/').pop() } };
       else if (path === '/api/composite/v1/search') result = { content: [{ identifier: 'do_mock_content' }], count: 1 };
       else if (path.includes('/user/enrollment/list')) result = { courses: [{
         courseId: 'do_mock_course', userId: path.includes('/v1/') ? path.split('/').pop() : 'mock-user-id', batchId: 'mock-batch', status: 2, progress: 1,
@@ -44,6 +44,7 @@ export function startMock() {
         if (body.request?.batch?.batchId !== 'mock-batch') return respond({ responseCode: 'CLIENT_ERROR', params: { err: 'bad batchId' } }, 400);
         result = { batch: { count: 1, participants: ['mock-user-id'] } };
       }
+      else if (path.includes('/user/v1/feed/')) result = { response: { userFeed: [] } };
       else if (path.includes('/user/')) result = { response: { id: path.split('/').pop() } };
       else if (path.endsWith('state/read')) {
         if (!Array.isArray(body.request.contentIds) || body.request.contentIds.length !== 2) return respond({ responseCode: 'CLIENT_ERROR', params: { err: 'bad contentIds' } }, 400);

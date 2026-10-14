@@ -1383,6 +1383,78 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "User Feed",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apikey}}"
+          },
+          {
+            "key": "x-authenticated-user-token",
+            "value": "{{user_access_token}}"
+          },
+          {
+            "key": "x-channel-id",
+            "value": "{{channel_id}}"
+          }
+        ],
+        "url": {
+          "raw": "{{host}}/api/user/v1/feed/{{user_id}}",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "user",
+            "v1",
+            "feed",
+            "{{user_id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Content Read V2",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apikey}}"
+          },
+          {
+            "key": "x-channel-id",
+            "value": "{{channel_id}}"
+          }
+        ],
+        "url": {
+          "raw": "{{host}}/api/content/v2/read/{{content_id}}",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "content",
+            "v2",
+            "read",
+            "{{content_id}}"
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }
