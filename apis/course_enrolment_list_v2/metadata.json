@@ -1,0 +1,5 @@
+{
+  "title": "Course Enrolment List V2",
+  "description": "POST /api/course/v2/user/enrollment/list?batchDetails=\u2026. Lists the token user's enrolments with batch details. Needs a user access token.",
+  "writes": false
+}
