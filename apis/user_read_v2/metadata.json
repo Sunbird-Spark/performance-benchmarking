@@ -1,5 +1,0 @@
-{
-  "title": "User Read V2",
-  "description": "GET /api/user/v2/read/{userId}. Reads the user profile (v2). Needs a user access token for the same user as user_id.",
-  "writes": false
-}

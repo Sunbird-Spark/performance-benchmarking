@@ -34,10 +34,10 @@ export function startMock() {
         if (!state.access.has(req.headers['x-authenticated-user-token'])) return respond({ responseCode: 'UNAUTHORIZED', params: { err: 'bad user token' } }, 401);
       }
       let result;
-      if (/\/content\/v[12]\/read\//.test(path) || path.includes('/collection/v1/hierarchy/')) result = { content: { identifier: path.split('/').pop() } };
+      if (path.includes('/content/v1/read/') || path.includes('/collection/v1/hierarchy/')) result = { content: { identifier: path.split('/').pop() } };
       else if (path === '/api/composite/v1/search') result = { content: [{ identifier: 'do_mock_content' }], count: 1 };
       else if (path.includes('/user/enrollment/list')) result = { courses: [{
-        courseId: 'do_mock_course', userId: path.includes('/v1/') ? path.split('/').pop() : 'mock-user-id', batchId: 'mock-batch', status: 2, progress: 1,
+        courseId: 'do_mock_course', userId: path.split('/').pop(), batchId: 'mock-batch', status: 2, progress: 1,
         batch: { identifier: 'mock-batch', batchId: 'mock-batch', name: 'mock', enrollmentType: 'open', status: 1 },
       }] };
       else if (path.endsWith('/batch/participants/list')) {
