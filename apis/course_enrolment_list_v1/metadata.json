@@ -1,0 +1,5 @@
+{
+  "title": "Course Enrolment List V1",
+  "description": "GET /api/course/v1/user/enrollment/list/{userId}. Lists the user's course enrolments. Needs a user access token for the same user as user_id.",
+  "writes": false
+}

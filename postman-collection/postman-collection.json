@@ -1195,6 +1195,136 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "Batch Participants List",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apikey}}"
+          },
+          {
+            "key": "x-authenticated-user-token",
+            "value": "{{user_access_token}}"
+          },
+          {
+            "key": "x-channel-id",
+            "value": "{{channel_id}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{host}}/api/course/v1/batch/participants/list",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "course",
+            "v1",
+            "batch",
+            "participants",
+            "list"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"request\":{\"batch\":{\"batchId\":\"{{batch_id}}\"}}}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Course V1 User Enrollment List",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apikey}}"
+          },
+          {
+            "key": "x-authenticated-user-token",
+            "value": "{{user_access_token}}"
+          },
+          {
+            "key": "x-channel-id",
+            "value": "{{channel_id}}"
+          }
+        ],
+        "url": {
+          "raw": "{{host}}/api/course/v1/user/enrollment/list/{{user_id}}",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "course",
+            "v1",
+            "user",
+            "enrollment",
+            "list",
+            "{{user_id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "User Feed",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apikey}}"
+          },
+          {
+            "key": "x-authenticated-user-token",
+            "value": "{{user_access_token}}"
+          },
+          {
+            "key": "x-channel-id",
+            "value": "{{channel_id}}"
+          }
+        ],
+        "url": {
+          "raw": "{{host}}/api/user/v1/feed/{{user_id}}",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "user",
+            "v1",
+            "feed",
+            "{{user_id}}"
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }
